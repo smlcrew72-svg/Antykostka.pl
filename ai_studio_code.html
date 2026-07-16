@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntyKostka.pl | Next-Gen Minecraft Mod</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #050505;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Animated Background --- */
+        .bg-animate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #111, #000);
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%) scale(1); }
+            to { transform: translate(20%, 20%) scale(1.2); }
+        }
+
+        /* --- iOS Liquid Glass Nav Bar --- */
+        .nav-glass {
+            background: rgba(15, 15, 15, 0.4);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* --- Showcase Cards --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- Liquid Button --- */
+        .btn-download {
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-download:hover {
+            box-shadow: 0 0 35px rgba(99, 102, 241, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="bg-animate">
+        <div class="blob" style="top: -10%; left: -10%;"></div>
+        <div class="blob" style="bottom: -10%; right: -10%; animation-delay: -5s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-4">
+        <div class="nav-glass w-full max-w-5xl h-16 flex items-center justify-between px-8">
+            <div class="flex items-center gap-2">
+                <!-- Logo -->
+                <div class="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center font-bold text-xl">A</div>
+                <span class="font-extrabold text-xl tracking-tighter">ANTY<span class="text-indigo-400">KOSTKA</span></span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-300">
+                <a href="#features" class="hover:text-white transition">Funkcje</a>
+                <a href="#showcase" class="hover:text-white transition">Showcase</a>
+                <a href="#download" class="hover:text-white transition">Pobierz</a>
+            </div>
+
+            <a href="https://github.com" target="_blank" class="bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition">
+                GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-40 pb-20 px-4 text-center">
+        <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight">
+            Graj mądrzej na <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">AntyKostka</span>
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+            Najbardziej zaawansowany mod do Minecrafta, który redefiniuje sposób, w jaki grasz. Przejmij kontrolę nad serwerem już teraz.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+            <a href="#download" class="btn-download px-10 py-4 rounded-2xl font-bold text-lg">Pobierz Mod</a>
+            <a href="#features" class="bg-zinc-900 border border-zinc-800 px-10 py-4 rounded-2xl font-bold text-lg hover:bg-zinc-800 transition">Zobacz funkcje</a>
+        </div>
+    </header>
+
+    <!-- Showcase Section -->
+    <section id="showcase" class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Showcase</h2>
+            <p class="text-gray-400">Zobacz co potrafi AntyKostka</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="glass-card p-8 rounded-3xl">
+                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Ultra Speed</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Zoptymalizowane moduły poruszania się, które omijają najnowsze systemy AntiCheat.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass-card p-8 rounded-3xl">
+                <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Advanced ESP</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Widzisz wszystko i wszystkich. Pełna konfiguracja renderowania graczy i skrzyń.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card p-8 rounded-3xl">
+                <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Bypass King</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Regularne aktualizacje zapewniające niewykrywalność na najpopularniejszych serwerach.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-24 px-4 bg-gradient-to-b from-transparent to-indigo-900/10">
+        <div class="max-w-4xl mx-auto glass-card p-12 rounded-[3rem] text-center border-indigo-500/20">
+            <h2 class="text-4xl font-extrabold mb-6">Gotowy na dominację?</h2>
+            <p class="text-gray-300 mb-8 text-lg">Pobierz AntyKostka bezpośrednio z naszego oficjalnego repozytorium GitHub i dołącz do społeczności.</p>
+            <a href="https://github.com/twoj-username/antykostka" target="_blank" class="btn-download inline-flex items-center gap-3 px-12 py-5 rounded-2xl font-black text-xl">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.805.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                POBIERZ Z GITHUB
+            </a>
+            <p class="mt-6 text-xs text-gray-500 uppercase tracking-widest">Wersja 2.4.0 • Stabilna • Minecraft 1.20.x</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 AntyKostka.pl. Wszelkie prawa zastrzeżone.</p>
+        <p class="mt-2">Strona nie jest powiązana z Mojang AB.</p>
+    </footer>
+
+    <script>
+        // Smooth reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-10');
+                }
+            });
+        });
+
+        document.querySelectorAll('.glass-card').forEach((card) => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
